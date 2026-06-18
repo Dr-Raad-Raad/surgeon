@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -88,15 +89,6 @@
             to {
                 opacity: 1;
                 transform: translateX(0);
-            }
-        }
-
-        @keyframes rotateSlow {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
             }
         }
 
@@ -525,33 +517,36 @@
             align-items: center;
         }
 
+        /* ----- حاوية الصورة بدون خلفية ودون دائرة ----- */
         .about-image {
-            background: linear-gradient(145deg, #e8f0f6, #d4e2ed);
-            border-radius: 30px;
-            padding: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            min-height: auto;
+            overflow: visible;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
         }
 
-        .about-image i {
-            font-size: 180px;
-            color: #2a7faa;
-            opacity: 0.8;
-            animation: float 7s ease-in-out infinite;
+        /* ===== صورة الدكتور (مكبرة) ===== */
+        .doctor-image {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(42, 127, 170, 0.18);
+            border: 4px solid #ffffff;
+            transition: all 0.4s ease;
+            object-fit: cover;
+            display: block;
         }
 
-        .about-image .deco-ring {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 2px dashed rgba(42, 127, 170, 0.15);
-            border-radius: 50%;
-            animation: rotateSlow 30s linear infinite;
+        .doctor-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 35px 80px rgba(42, 127, 170, 0.28);
         }
 
         .about-content h3 {
@@ -885,12 +880,16 @@
             }
             .about-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .contact-wrapper {
                 max-width: 100%;
+            }
+            .doctor-image {
+                max-width: 320px;
             }
         }
 
@@ -939,6 +938,9 @@
                 flex-wrap: wrap;
                 gap: 12px;
             }
+            .doctor-image {
+                max-width: 280px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -955,6 +957,9 @@
             .btn-secondary {
                 padding: 12px 24px;
                 font-size: 0.95rem;
+            }
+            .doctor-image {
+                max-width: 220px;
             }
         }
     </style>
@@ -1038,13 +1043,10 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image animate-on-scroll">
-                    <div class="deco-ring"></div>
-                    <i class="fas fa-user-md"></i>
+                    <!-- ===== ضع اسم ملف الصورة هنا ===== -->
+                    <img src="dr-raad.jpg" alt="الدكتور رعد رعد" class="doctor-image" />
                 </div>
                 <div class="about-content animate-on-scroll">
-                    <span class="hero-badge" style="margin-bottom:12px; display:inline-block;">
-                        <i class="fas fa-info-circle"></i> من هو د. رعد؟
-                    </span>
                     <h3>جراح أطفال <br>بخبرة تمتد لأكثر من 30 عامًا</h3>
                     <p>
                         الدكتور رعد رعد هو جراح أطفال استشاري، يعمل في <strong>مستشفى الزهراء الجامعي</strong> و <strong>مستشفى الرسول الأعظم</strong>. يتخصص في العمليات الجراحية للأطفال من عمر <strong>اليوم حتى 14 سنة</strong>.
